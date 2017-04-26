@@ -6,6 +6,8 @@ You may work as individuals or as a team consisting of up to, but not more than,
 If working as a team each student’s contribution to the project must be clearly identified in the project deliverables.
 Note: You are required to create this software using Javaand the software must include the following requirements.
 
+***Refer To Google Docs***
+
 Project Deliverables:
 
 1.  Cover Sheet – Project Name & All Student Names
@@ -22,5 +24,7 @@ Project Deliverables:
 12. Requirements Document
 13. Project Summary
 14. References
+
+***Refer To Google Docs***
 
 *** Submissions are to be typed, formatted, bound and submitted on time please! ***
