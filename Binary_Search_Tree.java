@@ -310,7 +310,7 @@ public class Binary_Search_Tree
      {
          if (r != null)
          {
-             inorder(r.getLeft());
+            r.getLeft();
          }
          return r.getPrice();
      }
@@ -319,7 +319,7 @@ public class Binary_Search_Tree
      {
          if (r != null)
          {
-              inorder(r.getRight());
+            r.getRight();
          }
          return r.getPrice();
      }
