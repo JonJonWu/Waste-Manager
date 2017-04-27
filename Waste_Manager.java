@@ -47,10 +47,9 @@ public class Waste_Manager
                                + menu.display_Last(menu.get_Root()));
 
                        int key = keyboard.nextInt();
-                       
-                           menu_Search( menu , key , customer );   
+                       menu_Search( menu.get_Root() , key , customer[1][0] ); 
                            break;
-                    
+                       
                    //Tom    
                    case 2:
                        System.out.println("\nHello " + customer[0][1] 
@@ -122,50 +121,25 @@ public class Waste_Manager
         //MID value is 19  
     }
     
-    public static void menu_Search(BST menu, int value, String[][] customer)
-    {
-        System.out.println("\nSearching menu for foods around pricepoint: $" 
-                            + value);
-        
-            menu.search(value);
-            menu.inorder();        
-        
-        //If Jim && Wasteful
-        if( customer[0][0].equalsIgnoreCase(customer[1][0]) )
-        {
-
-        }
-        
-        //If Tom && Moderatly Wasteful
-        else if ( customer[0][1].equalsIgnoreCase(customer[1][1]))
-        {
-            
-        }
-        
-        //If Lucy && Not Wasteful
-        else if (  customer[0][2].equalsIgnoreCase(customer[1][2])  )
-        {
-            
-        }
-        
-        //Wrong Input
-        else
-        {
-            
-        }
+    
 
         
         //Search method works !
         //Only finds 1 food, I want it to find every food that is <= to the
         //price given
+        
+        
         //Then, we create a Stack, and push all of those food items onto stack, 
         //and "POP" the values
+        
+        
+        //Queue
         // To the customers screen, and say..."These are our recommendations..."
+        
+        //Stack
         
         //NEED TO USE CRITERIA OF WASTEFULLNESS TO DETEMRINE (CONDITIONAL)
         //IF <= to PRICE or > PRICE
         
         // ^ CHANGE SEARCH ALGORITHM TO INCLUDE DUPLICATES ^
     }
-    
-}

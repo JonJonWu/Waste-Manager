@@ -260,7 +260,32 @@ public class Binary_Search_Tree
          return found;
      }
      
-     
+    //edit to push recommendations based off customer criteria, push onto stack 
+    public boolean menu_Search(BSTNode r, int value, String[][] customer)
+    {
+         BSTNode found_Node = null;
+         boolean found = false;
+         while ((r != null) && !found)
+         {
+             int rval = r.getPrice();
+             if (value < rval)
+                 r = r.getLeft();
+             else if (value > rval)
+                 r = r.getRight();
+             else
+             {
+                 found = true;
+                 found_Node = r;
+                 System.out.println("Name: " + found_Node.food_Name 
+                                  + "\nPrice: $" + found_Node.food_Price);
+                 break;
+             }
+             found = search(r, value);
+         }
+         return found;
+    }
+      
+    
      /* Function for inorder traversal */
      public void inorder()
      {
@@ -308,25 +333,24 @@ public class Binary_Search_Tree
          }
      }
      
-     //Function to display lowest - priced food item
+     //Function to display lowest priced food item
      public int display_First(BSTNode r)
      {
-         int first = root.getLeft().getPrice();
-         return first;
+         while (r.getLeft() != null) //Traverses to left-most node
+         {
+              r = r.getLeft();
+         }
+         return r.getPrice();
      }
      
-     //Function to display highest - priced food item
+     //Function to display highest priced food item
      public int display_Last(BSTNode r)
      {
-         int last = 0;
-         
-         for(int i = 0; i<10 ; i++) //Traverses tree to rightmost node
+         while (r.getRight() != null) //Traverses to right-most node
          {
-            r = r.getRight();
-            last = r.getRight().getPrice(); //Stores price of food ($64)
+              r = r.getRight();
          }
-         
-         return last;
+         return r.getPrice();
      }
      
      public BSTNode get_Root()
