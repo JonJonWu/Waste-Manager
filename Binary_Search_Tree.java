@@ -116,6 +116,8 @@ public class Binary_Search_Tree
  class BST
  {
      private BSTNode root;
+     private int i;
+     
  
      /* Constructor */
      public BST()
@@ -306,15 +308,24 @@ public class Binary_Search_Tree
          }
      }
      
-     public int display_First(BST menu)
+     //Function to display lowest - priced food item
+     public int display_First(BSTNode r)
      {
          int first = root.getLeft().getPrice();
          return first;
      }
      
-    public int display_Last(BST menu)
+     //Function to display highest - priced food item
+     public int display_Last(BSTNode r)
      {
-         int last = root.getRight().getPrice();
+         int last = 0;
+         
+         for(int i = 0; i<10 ; i++) //Traverses tree to rightmost node
+         {
+            r = r.getRight();
+            last = r.getRight().getPrice(); //Stores price of food ($64)
+         }
+         
          return last;
      }
      

@@ -42,9 +42,9 @@ public class Waste_Manager
                                " How much money are you willing to spend"
                                + " today?\n"
                                + "Value can range from: $" 
-                               + menu.display_First(menu)
-                               + " -  $" 
-                               + menu.display_Last(menu));
+                               + menu.display_First(menu.get_Root())
+                               + " - $" 
+                               + menu.display_Last(menu.get_Root()));
 
                        int key = keyboard.nextInt();
                        
@@ -154,7 +154,6 @@ public class Waste_Manager
             
         }
 
-        //INCLUDE MIN PRICE AND MAX PRICE BEFORE CUSTOMER ENTERS KEY
         
         //Search method works !
         //Only finds 1 food, I want it to find every food that is <= to the
