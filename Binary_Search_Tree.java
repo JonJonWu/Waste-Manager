@@ -306,22 +306,16 @@ public class Binary_Search_Tree
          }
      }
      
-     public int display_First(BSTNode r)
+     public int display_First(BST menu)
      {
-         if (r != null)
-         {
-            r.getLeft();
-         }
-         return r.getPrice();
+         int first = root.getLeft().getPrice();
+         return first;
      }
      
-     public int display_Last(BSTNode r)
+    public int display_Last(BST menu)
      {
-         if (r != null)
-         {
-            r.getRight();
-         }
-         return r.getPrice();
+         int last = root.getRight().getPrice();
+         return last;
      }
      
      public BSTNode get_Root()

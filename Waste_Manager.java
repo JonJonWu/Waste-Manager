@@ -40,12 +40,12 @@ public class Waste_Manager
                        System.out.println("\nHello " + customer[0][0] 
                                + "!" +
                                " How much money are you willing to spend"
-                               + " today?"
-                               + " Value can range from: $" 
-                               + menu.display_First(menu.get_Root())
-                               + " - $" 
-                               + menu.display_Last(menu.get_Root()));
-                               //Function will pull root out of tree
+                               + " today?\n"
+                               + "Value can range from: $" 
+                               + menu.display_First(menu)
+                               + " -  $" 
+                               + menu.display_Last(menu));
+
                        int key = keyboard.nextInt();
                        
                            menu_Search( menu , key , customer );   
@@ -118,7 +118,7 @@ public class Waste_Manager
         menu.insert("Fresh Vegetables 5 oz", 9);
         menu.insert("Fresh Fruits 6 oz", 10);
         menu.insert("Swallow's Nest 60 oz", 64);  
-        
+
         //MID value is 19  
     }
     
