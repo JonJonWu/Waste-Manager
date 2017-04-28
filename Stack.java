@@ -6,6 +6,7 @@ class Stack
     private BSTNode[] stackArray;
     private int top;
 	 
+    
     public Stack()
     {
 	stackArray = new BSTNode[maxSize];
@@ -50,7 +51,7 @@ class Stack
      public String display_Node(BSTNode node)
      {
          return "\n" + node.food_Name 
-       + "\n" + node.food_Price;
+              + "\n" + node.food_Price;
      }
 }
 
