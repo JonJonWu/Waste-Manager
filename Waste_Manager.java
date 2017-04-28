@@ -19,6 +19,12 @@ public class Waste_Manager
        BST menu = new BST();
        create_Menu(menu);
        
+       //Creating Stack (Length = 16 BSTNodes)
+       Stack rec_Stack = new Stack();
+      
+       
+       //Create Queue
+       
        System.out.println("Who Is Ordering?");
        
        //Initialize array options
@@ -46,9 +52,17 @@ public class Waste_Manager
                                + " - $" 
                                + menu.display_Last(menu.get_Root()));
 
-                       int key = keyboard.nextInt();
-                       menu_Search( menu.get_Root() , key , customer[1][0] ); 
-                           break;
+                        int key = keyboard.nextInt();
+                  
+                        menu.custom_Search(menu.get_Root()
+                                           , key
+                                           , customer[1][0]
+                                           , rec_Stack);
+                        
+                       
+                        
+                  
+                        break;
                        
                    //Tom    
                    case 2:
@@ -122,24 +136,15 @@ public class Waste_Manager
     }
     
     
+    //FIX custom_Search method
+    //Jons Idea
 
         
-        //Search method works !
-        //Only finds 1 food, I want it to find every food that is <= to the
-        //price given
-        
-        
-        //Then, we create a Stack, and push all of those food items onto stack, 
-        //and "POP" the values
+
         
         
         //Queue
         // To the customers screen, and say..."These are our recommendations..."
         
-        //Stack
-        
-        //NEED TO USE CRITERIA OF WASTEFULLNESS TO DETEMRINE (CONDITIONAL)
-        //IF <= to PRICE or > PRICE
-        
-        // ^ CHANGE SEARCH ALGORITHM TO INCLUDE DUPLICATES ^
+       
     }

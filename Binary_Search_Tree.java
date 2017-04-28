@@ -261,27 +261,64 @@ public class Binary_Search_Tree
      }
      
     //edit to push recommendations based off customer criteria, push onto stack 
-    public boolean menu_Search(BSTNode r, int value, String[][] customer)
+    public boolean custom_Search(BSTNode r, int val, String crit, Stack stack)
     {
          BSTNode found_Node = null;
          boolean found = false;
          while ((r != null) && !found)
          {
              int rval = r.getPrice();
-             if (value < rval)
+             if (val < rval)
                  r = r.getLeft();
-             else if (value > rval)
+             else if (val > rval)
                  r = r.getRight();
+             
+             //Value is found
              else
              {
-                 found = true;
-                 found_Node = r;
-                 System.out.println("Name: " + found_Node.food_Name 
-                                  + "\nPrice: $" + found_Node.food_Price);
+                 if(crit.equalsIgnoreCase("Wasteful"))
+                 {
+                     System.out.println("\nHere are our recommendations: ");
+                     
+                     found = true;
+                     found_Node = r;
+                     
+                     while (found_Node != null)
+                     {                        
+                         stack.push(found_Node);
+                         System.out.println(stack.display_Node(found_Node));
+                         found_Node = found_Node.getLeft(); //FIX
+                         
+                     }
+                     
+                 
+                // System.out.println("Name: " + found_Node.food_Name 
+                  //                + "\nPrice: $" + found_Node.food_Price);
+                 }
+                 
+                 else if (crit.equalsIgnoreCase("Not Wasteful"))
+                 {
+                     found = true;
+                     found_Node = r;
+                 
+               //  System.out.println("Name: " + found_Node.food_Name 
+                               //   + "\nPrice: $" + found_Node.food_Price);
+                 }
+                 
+                 else//Moderatly Wasteful
+                 {
+                     found = true;
+                     found_Node = r;
+                 
+               //  System.out.println("Name: " + found_Node.food_Name 
+                             //     + "\nPrice: $" + found_Node.food_Price);
+                 
+                 }
+                 
                  break;
              }
-             found = search(r, value);
-         }
+             found = custom_Search(r, val, crit, stack);
+         }//END WHILE LOOP
          return found;
     }
       
@@ -357,4 +394,5 @@ public class Binary_Search_Tree
      {
          return root;
      }
+     
  }
