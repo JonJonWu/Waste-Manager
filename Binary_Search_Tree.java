@@ -279,8 +279,8 @@ public class Binary_Search_Tree
                      found = true;
                      found_Node = r;
                      
-                     //inorder method thoeretically should start order at value user enters and display every node in order > value
-                     inorder(found_Node, stack);
+                     //backward method thoeretically should start order at value user enters and display every node in order < value
+                     backward(found_Node, stack);
                      System.out.println(stack.display_Node(found_Node));
                      
                      /* while (found_Node != null)
@@ -362,18 +362,18 @@ public class Binary_Search_Tree
          if (r != null)
          {
              inorder(r.getLeft(), stack);
-             stack.push(r);
+             System.out.print(r.getPrice() +" ");
              inorder(r.getRight(), stack);
          }
      }
      
-      private void backward(BSTNode r)
+      private void backward(BSTNode r, Stack stack)
      {
          if (r != null)
          {
-             backward(r.getLeft());
-             System.out.print(r.getPrice() +" ");
-             backward(r.getRight());
+             backward(r.getLeft(), stack);
+             stack.push(r);
+             backward(r.getRight(), stack);
          }
          //Take output of inorder and display backwards
      }
