@@ -276,49 +276,70 @@ public class Binary_Search_Tree
              //Value is found
              else
              {
+                 
+                 //JIM
                  if(crit.equalsIgnoreCase("Wasteful"))
                  {
+                     //Recommendations will be less than value entered
                      System.out.println("\nHere are our recommendations: ");
                      
                      found = true;
                      found_Node = r;
                      
                      while (found_Node != null)
-                     {                        
+                     {                       
                          stack.push(found_Node);
                          System.out.println(stack.display_Node(found_Node));
-                         found_Node = found_Node.getLeft(); //FIX
+                         found_Node = found_Node.getLeft(); //FIX (64 is last node it does not have a left!)
                          
                      }
+                 }
+                 
+                 //Tom
+                 else if (crit.equalsIgnoreCase("Moderatly Wasteful"))
+                 {
+                     //SHOULD TRAVERSE 3 NODES LEFT AND 3 NODES RIGHT
+                    System.out.println("\nHere are our recommendations: ");
                      
-                 
-                // System.out.println("Name: " + found_Node.food_Name 
-                  //                + "\nPrice: $" + found_Node.food_Price);
-                 }
-                 
-                 else if (crit.equalsIgnoreCase("Not Wasteful"))
-                 {
                      found = true;
                      found_Node = r;
-                 
-               //  System.out.println("Name: " + found_Node.food_Name 
-                               //   + "\nPrice: $" + found_Node.food_Price);
+                     
+                     while (found_Node != null)
+                     {                       
+                         stack.push(found_Node);
+                         System.out.println(stack.display_Node(found_Node));
+                         found_Node = found_Node.getRight(); 
+                     }
                  }
                  
-                 else//Moderatly Wasteful
+                 //Lucy
+                 else if(crit.equalsIgnoreCase("Not Wasteful"))
                  {
+                     //Reccomendations will be greater than the value entered
+                     System.out.println("\nHere are our recommendations: ");
+                     
                      found = true;
                      found_Node = r;
-                 
-               //  System.out.println("Name: " + found_Node.food_Name 
-                             //     + "\nPrice: $" + found_Node.food_Price);
+                     
+                     while (found_Node != null)
+                     {                       
+                         stack.push(found_Node);
+                         System.out.println(stack.display_Node(found_Node));
+                         found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)   
+                     }
                  
                  }
+                else //Defualt Case
+                {
+                   //Handles value not in tree, call method again?
+                }
                  
                  break;
              }
              found = custom_Search(r, val, crit, stack);
+             
          }//END WHILE LOOP
+         
          return found;
     }
       

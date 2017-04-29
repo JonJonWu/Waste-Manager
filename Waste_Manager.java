@@ -24,6 +24,7 @@ public class Waste_Manager
       
        
        //Create Queue
+       //...........
        
        System.out.println("Who Is Ordering?");
        
@@ -37,7 +38,7 @@ public class Waste_Manager
                                  + "\n3 : " + customer[0][2]);
        
        Scanner keyboard = new Scanner(System.in);
-       
+       int key;
        
        switch(keyboard.nextInt())
                {
@@ -52,32 +53,51 @@ public class Waste_Manager
                                + " - $" 
                                + menu.display_Last(menu.get_Root()));
 
-                        int key = keyboard.nextInt();
+                        key = keyboard.nextInt();
                   
                         menu.custom_Search(menu.get_Root()
                                            , key
                                            , customer[1][0]
                                            , rec_Stack);
-                        
-                       
-                        
                   
                         break;
                        
                    //Tom    
                    case 2:
-                       System.out.println("\nHello " + customer[0][1] 
+                      System.out.println("\nHello " + customer[0][1] 
                                + "!" +
                                " How much money are you willing to spend"
-                               + " today?");
+                               + " today?\n"
+                               + "Value can range from: $" 
+                               + menu.display_First(menu.get_Root())
+                               + " - $" 
+                               + menu.display_Last(menu.get_Root()));
+
+                         key = keyboard.nextInt();
+                  
+                        menu.custom_Search(menu.get_Root()
+                                           , key
+                                           , customer[1][1]
+                                           , rec_Stack);
                        break;
                        
                    //Lucy    
                    case 3:
-                       System.out.println("\nHello " + customer[0][2]  
+                      System.out.println("\nHello " + customer[0][2] 
                                + "!" +
                                " How much money are you willing to spend"
-                               + " today?");
+                               + " today?\n"
+                               + "Value can range from: $" 
+                               + menu.display_First(menu.get_Root())
+                               + " - $" 
+                               + menu.display_Last(menu.get_Root()));
+
+                         key = keyboard.nextInt();
+                  
+                        menu.custom_Search(menu.get_Root()
+                                           , key
+                                           , customer[1][2]
+                                           , rec_Stack);
                        break;
                        
                    default: 
@@ -94,9 +114,9 @@ public class Waste_Manager
      public static void fill_Array(String[][] customer)
     {
        //Names are in row 1
-       customer[0][0] = "Jim";
-       customer[0][1] = "Tom";
-       customer[0][2] = "Lucy";
+       customer[0][0] = "Jim";  //Wasteful
+       customer[0][1] = "Tom";  //Moderatly Wasteful
+       customer[0][2] = "Lucy"; //Not Wasteful
        
        //Criteria of Wastefulness in row 2
        customer[1][0] = "Wasteful";
@@ -131,7 +151,7 @@ public class Waste_Manager
         menu.insert("Fresh Vegetables 5 oz", 9);
         menu.insert("Fresh Fruits 6 oz", 10);
         menu.insert("Swallow's Nest 60 oz", 64);  
-
+        
         //MID value is 19  
     }
     
