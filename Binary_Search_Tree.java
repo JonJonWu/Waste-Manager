@@ -291,7 +291,7 @@ public class Binary_Search_Tree
                          stack.push(found_Node);
                          System.out.println(stack.display_Node(found_Node));
                          found_Node = found_Node.getLeft(); //FIX (64 is last node it does not have a left!)
-                         
+                         System.out.println("LOOP");
                      }
                  }
                  
@@ -325,7 +325,7 @@ public class Binary_Search_Tree
                      {                       
                          stack.push(found_Node);
                          System.out.println(stack.display_Node(found_Node));
-                         found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)   
+                         found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
                      }
                  
                  }
@@ -349,6 +349,7 @@ public class Binary_Search_Tree
      {
          inorder(root);
      }
+     
      private void inorder(BSTNode r)
      {
          if (r != null)
@@ -359,6 +360,17 @@ public class Binary_Search_Tree
          }
      }
      
+      private void backward(BSTNode r)
+     {
+         if (r != null)
+         {
+             backward(r.getLeft());
+             System.out.print(r.getPrice() +" ");
+             backward(r.getRight());
+         }
+         //Take output of inorder and display backwards
+     }
+      
      /* Function for preorder traversal */
      public void preorder()
      {

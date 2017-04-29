@@ -151,7 +151,7 @@ public class Waste_Manager
         menu.insert("Fresh Vegetables 5 oz", 9);
         menu.insert("Fresh Fruits 6 oz", 10);
         menu.insert("Swallow's Nest 60 oz", 64);  
-        
+
         //MID value is 19  
     }
     
@@ -159,6 +159,10 @@ public class Waste_Manager
     //FIX custom_Search method
     //Jons Idea
 
+    /* I HAD AN IDEA!
+       in the custom_Search method why are we using while loops?
+       we should use the inorder and backward methods
+       becuase they can accept a node to start from and go > or < from there*/
 
         
         
