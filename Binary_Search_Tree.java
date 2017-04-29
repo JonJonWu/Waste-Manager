@@ -254,7 +254,11 @@ public class Binary_Search_Tree
      }
      
     //edit to push recommendations based off customer criteria, push onto stack 
-    public boolean custom_Search(BSTNode r, int val, String crit, Stack stack)
+    public boolean custom_Search(BSTNode r
+                               , int val
+                               , String crit
+                               , Stack stack
+                               , Queue queue)
     {
          BSTNode found_Node = null;
          boolean found = false;
@@ -321,7 +325,9 @@ public class Binary_Search_Tree
                      while (found_Node != null)
                      {                       
                          stack.push(found_Node);
-                         System.out.println(stack.display_Node(found_Node));
+                         queue.insert(stack.pop());
+                         
+                         System.out.println(queue.display_Node(found_Node));
                          found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
                      }
                  
@@ -333,7 +339,7 @@ public class Binary_Search_Tree
                  
                  break;
              }
-             found = custom_Search(r, val, crit, stack);
+             found = custom_Search(r, val, crit, stack, queue);
              
          }//END WHILE LOOP
          

@@ -22,9 +22,8 @@ public class Waste_Manager
        //Creating Stack (Length = 16 BSTNodes)
        Stack rec_Stack = new Stack();
       
-       
        //Create Queue
-       //...........
+       Queue rec_Queue = new Queue();
        
        System.out.println("Who Is Ordering?");
        
@@ -57,8 +56,9 @@ public class Waste_Manager
                   
                         menu.custom_Search(menu.get_Root()
                                            , key
-                                           , customer[1][0]
-                                           , rec_Stack);
+                                           , customer[1][2]
+                                           , rec_Stack
+                                           , rec_Queue);
                   
                         break;
                        
@@ -75,10 +75,11 @@ public class Waste_Manager
 
                          key = keyboard.nextInt();
                   
-                        menu.custom_Search(menu.get_Root()
+                       menu.custom_Search(menu.get_Root()
                                            , key
-                                           , customer[1][1]
-                                           , rec_Stack);
+                                           , customer[1][2]
+                                           , rec_Stack
+                                           , rec_Queue);
                        break;
                        
                    //Lucy    
@@ -97,7 +98,8 @@ public class Waste_Manager
                         menu.custom_Search(menu.get_Root()
                                            , key
                                            , customer[1][2]
-                                           , rec_Stack);
+                                           , rec_Stack
+                                           , rec_Queue);
                        break;
                        
                    default: 
@@ -164,7 +166,7 @@ public class Waste_Manager
        we should use the inorder and backward methods
        becuase they can accept a node to start from and go > or < from there*/
 
-        
+        //Next step is to take output of stack and insert into queue
         
         //Queue
         // To the customers screen, and say..."These are our recommendations..."

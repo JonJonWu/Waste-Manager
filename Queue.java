@@ -16,6 +16,16 @@ public class Queue
                                      
  
     // Constructor
+    Queue()
+    {
+        queueSize = 16;
+        Queue = new BSTNode[ queueSize ];
+        
+        numberOfItems = 0;                                      
+        front = 0;
+        back = 0;   
+    }
+     
     Queue(int size)
     {
         queueSize = size;
@@ -67,17 +77,7 @@ public class Queue
         System.out.print("Front of Queue: " + Queue[ front ] + "\n");     
     }
     
-    //If there is no value to display, method displays "null"
-    public void display()         
-    {    
-        System.out.println();
-        
-        for ( int i = 0 ; i < Queue.length ; i++ )
-        {
-            System.out.println("\tINDEX " + i + " : " + Queue[ i ].food_Name
-            + "\n" + Queue[ i ].food_Price );
-        }   
-    }
+
     
     public void shift()                                                        
     {                                                                          
@@ -87,4 +87,10 @@ public class Queue
             }       
     }
    
+     public String display_Node(BSTNode node)
+     {
+         System.out.println("ENTERS");
+         return "\n" + node.food_Name 
+              + "\n" + node.food_Price;
+     }
 }//END OF CLASS QUEUE
