@@ -81,7 +81,7 @@ public class Queue
     
     public void shift()                                                        
     {                                                                          
-            for (int i = 0 ; i < numberOfItems; i++) s
+            for (int i = 0 ; i < numberOfItems; i++) 
             {    
                 Queue[ i ] = Queue[i + 1];
             }       
