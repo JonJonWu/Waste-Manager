@@ -8,15 +8,10 @@ import java.util.Scanner;
  * @Date   4/15/17
  */
 
-/*  Presents user with ($ low food - High food $). [Asks how much they want 
-    to spend, Adjusts menu accordingly] This will contain Food Names/Prices */
-
 public class Binary_Search_Tree 
-{
-    
+{   
 }
 
- 
  /* Class BSTNode */
  class BSTNode
  {
@@ -111,14 +106,12 @@ public class Binary_Search_Tree
  }
  
                                                             
-
 /* Class BST */
  class BST
  {
      private BSTNode root;
      private int i;
      
- 
      /* Constructor */
      public BST()
      {
@@ -277,7 +270,7 @@ public class Binary_Search_Tree
              else
              {
                  
-                 //JIM
+                 //JIM NOT WORKING
                  if(crit.equalsIgnoreCase("Wasteful"))
                  {
                      //Recommendations will be less than value entered
@@ -286,16 +279,20 @@ public class Binary_Search_Tree
                      found = true;
                      found_Node = r;
                      
-                     while (found_Node != null)
+                     //inorder method thoeretically should start order at value user enters and display every node in order > value
+                     inorder(found_Node, stack);
+                     System.out.println(stack.display_Node(found_Node));
+                     
+                     /* while (found_Node != null)
                      {                       
                          stack.push(found_Node);
                          System.out.println(stack.display_Node(found_Node));
-                         found_Node = found_Node.getLeft(); //FIX (64 is last node it does not have a left!)
-                         System.out.println("LOOP");
                      }
+                     */
+                     
                  }
                  
-                 //Tom
+                 //Tom NOT WORKING
                  else if (crit.equalsIgnoreCase("Moderatly Wasteful"))
                  {
                      //SHOULD TRAVERSE 3 NODES LEFT AND 3 NODES RIGHT
@@ -312,7 +309,7 @@ public class Binary_Search_Tree
                      }
                  }
                  
-                 //Lucy
+                 //Lucy WORKING
                  else if(crit.equalsIgnoreCase("Not Wasteful"))
                  {
                      //Reccomendations will be greater than the value entered
@@ -350,13 +347,23 @@ public class Binary_Search_Tree
          inorder(root);
      }
      
-     private void inorder(BSTNode r)
+     public void inorder(BSTNode r)
      {
          if (r != null)
          {
              inorder(r.getLeft());
-             System.out.print(r.getPrice() +" ");
+
              inorder(r.getRight());
+         }
+     }
+     
+     public void inorder(BSTNode r, Stack stack)
+     {
+         if (r != null)
+         {
+             inorder(r.getLeft(), stack);
+             stack.push(r);
+             inorder(r.getRight(), stack);
          }
      }
      
