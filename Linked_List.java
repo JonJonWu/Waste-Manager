@@ -11,6 +11,8 @@ package waste_manager;
 
 public class Linked_List extends BSTNode
 {
+    //Add Method BSTNode
+    //Delete Method BSTNode
      
     
     
