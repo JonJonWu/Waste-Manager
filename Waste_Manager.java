@@ -15,7 +15,7 @@ public class Waste_Manager
     public static void main(String[] args) 
     {
         
-       //Creating BST
+       //Creating Binary Search Tree (BST)
        BST menu = new BST();
        create_Menu(menu);
        
@@ -24,6 +24,10 @@ public class Waste_Manager
       
        //Create Queue
        Queue rec_Queue = new Queue();
+       
+       //Create Linked List
+       //Linked_List<BSTNode> rec_Llist = new Linked_List<BSTNode>();
+       
        
        System.out.println("Who Is Ordering?");
        
@@ -159,17 +163,17 @@ public class Waste_Manager
     
     
     //FIX custom_Search method
-    //Jons Idea
 
     /* I HAD AN IDEA!
        in the custom_Search method why are we using while loops?
        we should use the inorder and backward methods
        becuase they can accept a node to start from and go > or < from there*/
-
-        //Next step is to take output of stack and insert into queue
-        
+    
         //Queue
         // To the customers screen, and say..."These are our recommendations..."
+    
+    //I want to use a linked list in the backwards method so the output can be added to the linked list and displayed properly
+    //I do not want to import java.util.LinkedList. We need code to write! 
         
        
     }

@@ -110,7 +110,6 @@ public class Binary_Search_Tree
  class BST
  {
      private BSTNode root;
-     private int i;
      
      /* Constructor */
      public BST()
@@ -285,7 +284,8 @@ public class Binary_Search_Tree
                      
                      //backward method thoeretically should start order at value user enters and display every node in order < value
                      backward(found_Node, stack);
-                     System.out.println(stack.display_Node(found_Node));
+                     queue.insert(stack.pop());
+                     System.out.println(queue.display_Node(found_Node));
                      
                      /* while (found_Node != null)
                      {                       
@@ -377,11 +377,17 @@ public class Binary_Search_Tree
      {
          if (r != null)
          {
-             backward(r.getLeft(), stack);
-             stack.push(r);
              backward(r.getRight(), stack);
+             stack.push(r);
+             backward(r.getLeft(), stack);
          }
-         //Take output of inorder and display backwards
+         
+         /*
+         while(!stack.isEmpty())
+         {
+            rec_Llist.add(stack.pop());
+         }
+         */
      }
       
      /* Function for preorder traversal */

@@ -13,8 +13,8 @@ public class Queue
        This marks the first element in the array. 
        The first element is only altered by a call to the shift() method 
        Found in the remove() method  */
-                                     
- 
+                                    
+    
     // Constructor
     Queue()
     {
@@ -76,9 +76,7 @@ public class Queue
     {
         System.out.print("Front of Queue: " + Queue[ front ] + "\n");     
     }
-    
-
-    
+   
     public void shift()                                                        
     {                                                                          
             for (int i = 0 ; i < numberOfItems; i++) 
@@ -87,10 +85,9 @@ public class Queue
             }       
     }
    
-     public String display_Node(BSTNode node)
-     {
-         System.out.println("ENTERS");
-         return "\n" + node.food_Name 
-              + "\n" + node.food_Price;
-     }
+    public String display_Node(BSTNode node)
+    {
+        return "\n" + node.food_Name 
+             + "\n" + node.food_Price;
+    }
 }//END OF CLASS QUEUE

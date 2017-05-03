@@ -8,5 +8,5 @@ package waste_manager;
  */
 public class Binary_Search 
 {
-    
+    //WE DO NOT HAVE TO IMPLEMENT THIS
 }

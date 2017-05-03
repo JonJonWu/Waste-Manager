@@ -9,7 +9,14 @@ package waste_manager;
 
 // Drinks [Represents Names + Prices]
 
-public class Linked_List 
+public class Linked_List extends BSTNode
 {
+     
     
+    
+    public String display_Node(BSTNode node)
+    {
+        return "\n" + node.food_Name 
+             + "\n" + node.food_Price;
+    }	
 }
