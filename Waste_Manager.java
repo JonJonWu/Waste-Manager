@@ -1,4 +1,5 @@
 package waste_manager;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -26,19 +27,18 @@ public class Waste_Manager
        Queue rec_Queue = new Queue();
        
        //Create Linked List
-       //Linked_List<BSTNode> rec_Llist = new Linked_List<BSTNode>();
+       LinkedList<BSTNode> rec_Llist = new LinkedList<BSTNode>();
        
        
        System.out.println("Who Is Ordering?");
        
        //Initialize array options
-       String[][] customer = new String[2][3];      
+       String[][] customer = new String[2][2];      
        fill_Array(customer);
        
        //Display array row1 (Names)
        System.out.println("1 : " + customer[0][0]
-                                 + "\n2 : " + customer[0][1]
-                                 + "\n3 : " + customer[0][2]);
+                                 + "\n2 : " + customer[0][1]);
        
        Scanner keyboard = new Scanner(System.in);
        int key;
@@ -58,15 +58,16 @@ public class Waste_Manager
 
                         key = keyboard.nextInt();
                   
-                        menu.custom_Search(menu.get_Root()
+                       menu.custom_Search(menu.get_Root()
                                            , key
-                                           , customer[1][2]
+                                           , customer[1][0]
                                            , rec_Stack
-                                           , rec_Queue);
+                                           , rec_Queue
+                                           , rec_Llist);
                   
                         break;
                        
-                   //Tom    
+                   //Lucy    
                    case 2:
                       System.out.println("\nHello " + customer[0][1] 
                                + "!" +
@@ -81,29 +82,10 @@ public class Waste_Manager
                   
                        menu.custom_Search(menu.get_Root()
                                            , key
-                                           , customer[1][2]
+                                           , customer[1][1]
                                            , rec_Stack
-                                           , rec_Queue);
-                       break;
-                       
-                   //Lucy    
-                   case 3:
-                      System.out.println("\nHello " + customer[0][2] 
-                               + "!" +
-                               " How much money are you willing to spend"
-                               + " today?\n"
-                               + "Value can range from: $" 
-                               + menu.display_First(menu.get_Root())
-                               + " - $" 
-                               + menu.display_Last(menu.get_Root()));
-
-                         key = keyboard.nextInt();
-                  
-                        menu.custom_Search(menu.get_Root()
-                                           , key
-                                           , customer[1][2]
-                                           , rec_Stack
-                                           , rec_Queue);
+                                           , rec_Queue
+                                           , rec_Llist);
                        break;
                        
                    default: 
@@ -121,13 +103,11 @@ public class Waste_Manager
     {
        //Names are in row 1
        customer[0][0] = "Jim";  //Wasteful
-       customer[0][1] = "Tom";  //Moderatly Wasteful
-       customer[0][2] = "Lucy"; //Not Wasteful
+       customer[0][1] = "Lucy";  //Not Wasteful
        
        //Criteria of Wastefulness in row 2
        customer[1][0] = "Wasteful";
-       customer[1][1] = "Moderatly Wasteful";
-       customer[1][2] = "Not Wasteful";
+       customer[1][1] = "Not Wasteful";
     }
      
     //FOOD NAMES + PRICES

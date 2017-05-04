@@ -1,4 +1,5 @@
 package waste_manager;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -257,7 +258,8 @@ public class Binary_Search_Tree
                                , int val
                                , String crit
                                , Stack stack
-                               , Queue queue)
+                               , Queue queue
+                               , LinkedList rec_Llist)
     {
          BSTNode found_Node = null;
          boolean found = false;
@@ -276,48 +278,29 @@ public class Binary_Search_Tree
                  //JIM NOT WORKING
                  if(crit.equalsIgnoreCase("Wasteful"))
                  {
-                     //Recommendations will be less than value entered
-                     System.out.println("\nHere are our recommendations: ");
-                     
-                     found = true;
-                     found_Node = r;
-                     
-                     //backward method thoeretically should start order at value user enters and display every node in order < value
-                     backward(found_Node, stack);
-                     queue.insert(stack.pop());
-                     System.out.println(queue.display_Node(found_Node));
-                     
-                     /* while (found_Node != null)
-                     {                       
-                         stack.push(found_Node);
-                         System.out.println(stack.display_Node(found_Node));
-                     }
-                     */
-                     
-                 }
-                 
-                 //Tom NOT WORKING
-                 else if (crit.equalsIgnoreCase("Moderatly Wasteful"))
-                 {
-                     //SHOULD TRAVERSE 3 NODES LEFT AND 3 NODES RIGHT
-                    System.out.println("\nHere are our recommendations: ");
+                     //Reccomendations will be less than the value entered
+                     System.out.println("\nHere are our recommendations: Wasteful ");
                      
                      found = true;
                      found_Node = r;
                      
                      while (found_Node != null)
-                     {                       
-                         stack.push(found_Node);
-                         System.out.println(stack.display_Node(found_Node));
-                         found_Node = found_Node.getRight(); 
+                     {     
+                         backward(found_Node, stack, rec_Llist);
+                         rec_Llist.descendingIterator();
+                         queue.insert((BSTNode) rec_Llist.poll());
+                       
+                         
+                         System.out.println(queue.display_Node(found_Node));
+                         found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
                      }
-                 }
                  
+                 }              
                  //Lucy WORKING
                  else if(crit.equalsIgnoreCase("Not Wasteful"))
                  {
                      //Reccomendations will be greater than the value entered
-                     System.out.println("\nHere are our recommendations: ");
+                     System.out.println("\nHere are our recommendations: Not Wasteful ");
                      
                      found = true;
                      found_Node = r;
@@ -339,7 +322,7 @@ public class Binary_Search_Tree
                  
                  break;
              }
-             found = custom_Search(r, val, crit, stack, queue);
+             found = custom_Search(r, val, crit, stack, queue, rec_Llist);
              
          }//END WHILE LOOP
          
@@ -373,21 +356,20 @@ public class Binary_Search_Tree
          }
      }
      
-      private void backward(BSTNode r, Stack stack)
+      private void backward(BSTNode r, Stack stack, LinkedList rec_Llist)
      {
          if (r != null)
          {
-             backward(r.getRight(), stack);
+             backward(r.getRight(), stack, rec_Llist);
              stack.push(r);
-             backward(r.getLeft(), stack);
+             backward(r.getLeft(), stack, rec_Llist);
          }
          
-         /*
          while(!stack.isEmpty())
          {
             rec_Llist.add(stack.pop());
          }
-         */
+         
      }
       
      /* Function for preorder traversal */

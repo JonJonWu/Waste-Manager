@@ -1,4 +1,5 @@
 package waste_manager;
+import java.util.LinkedList;
 
 /**
  * @Author Jonathan Wu
