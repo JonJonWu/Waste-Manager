@@ -138,9 +138,13 @@ public class Binary_Search_Tree
          else
          {
              if (price <= node.getPrice())
+             {
                  node.left = insert(node.left, food, price);
+             }
              else
+             {
                  node.right = insert(node.right, food, price);
+             }
          }
          return node;
      }
@@ -263,14 +267,21 @@ public class Binary_Search_Tree
     {
          BSTNode found_Node = null;
          boolean found = false;
+         
          while ((r != null) && !found)
          {
              int rval = r.getPrice();
-             if (val < rval)
-                 r = r.getLeft();
-             else if (val > rval)
-                 r = r.getRight();
              
+             System.out.println("ROOT PRICE\n" + rval);
+             if (val < rval)
+             {
+                 r = r.left;
+                 System.out.println("Going Left");
+             }
+             else if (val > rval)
+             {
+                 r = r.right;
+             }
              //Value is found
              else
              {
@@ -283,6 +294,8 @@ public class Binary_Search_Tree
                      
                      found = true;
                      found_Node = r;
+                    // System.out.println("Found Node");
+                  //   System.out.println(found_Node.getLeft().getPrice());
                                       
                      while (found_Node != null)
                      {                       
@@ -295,7 +308,7 @@ public class Binary_Search_Tree
                      
                  }              
                  //Lucy WORKING
-                 else if(crit.equalsIgnoreCase("Not Wasteful"))
+                 else
                  {
                      //Reccomendations will be greater than the value entered
                      System.out.println("\nHere are our recommendations: Not Wasteful ");
@@ -313,11 +326,6 @@ public class Binary_Search_Tree
                      }
                  
                  }
-                else //Defualt Case
-                {
-                   val--;
-                   found = custom_Search(r, val, crit, stack, queue, rec_Llist);
-                }
                  
                  break;
              }

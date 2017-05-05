@@ -40,62 +40,112 @@ public class Waste_Manager
                                  + "\n2 : " + customer[0][1]);
        
        Scanner keyboard = new Scanner(System.in);
-       int key;
        
+       int key = 0;
+       boolean loop = false;
+       
+       int last = menu.display_Last(menu.get_Root());
+       int first = menu.display_First(menu.get_Root());
        
        switch(keyboard.nextInt())
-               {
-                   //Jim
-                   case 1:
-                       System.out.println("\nHello " + customer[0][0] 
-                               + "!" +
-                               " How much money are you willing to spend"
-                               + " today?\n"
-                               + "Value can range from: $" 
-                               + menu.display_First(menu.get_Root())
-                               + " - $" 
-                               + menu.display_Last(menu.get_Root()));
+        {
+            //Jim
+            case 1:
+                System.out.println("\nHello " + customer[0][0] 
+                        + "!" +
+                        " How much money are you willing to spend"
+                        + " today?\n"
+                        + "Value can range from: $" 
+                        + first
+                        + " - $" 
+                        + last);
 
-                        key = keyboard.nextInt();
-                  
-                       menu.custom_Search(menu.get_Root()
-                                           , key
-                                           , customer[1][0]
-                                           , rec_Stack
-                                           , rec_Queue
-                                           , rec_Llist);
-                  
-                        break;
-                       
-                   //Lucy    
-                   case 2:
-                      System.out.println("\nHello " + customer[0][1] 
-                               + "!" +
-                               " How much money are you willing to spend"
-                               + " today?\n"
-                               + "Value can range from: $" 
-                               + menu.display_First(menu.get_Root())
-                               + " - $" 
-                               + menu.display_Last(menu.get_Root()));
+                
+                while(!loop)
+                {
+                    //Input Must Be Integer
+                    if(!keyboard.hasNextInt())
+                     {
+                         keyboard.next();
+                         System.out.println("Please Enter A Valid Integer");
+                     }
+                    
+                    //Input Must Be Integer Within Range
+                    else if (key > last || key < first)
+                    {
+                        System.out.println("\nPlease Confirm Integer is"
+                                         + " Within Valid Range"
+                                         + "\nBy Entering Number Again"); 
 
-                         key = keyboard.nextInt();
-                  
-                       menu.custom_Search(menu.get_Root()
-                                           , key
-                                           , customer[1][1]
-                                           , rec_Stack
-                                           , rec_Queue
-                                           , rec_Llist);
-                       break;
-                       
-                   default: 
-                       System.out.println("Please enter a numeric value of "
-                                        + "1 or 2" 
-                                        + " \nRe-run Program");
-                       break;
-                   
-               }
-       
+                        key = keyboard.nextInt();  
+                    }
+                    else
+                    {
+                        loop =true;
+                    }
+                }
+
+                menu.custom_Search(menu.get_Root()
+                                    , key
+                                    , customer[1][0]
+                                    , rec_Stack
+                                    , rec_Queue
+                                    , rec_Llist);
+
+                 break;
+
+            //Lucy    
+            case 2:
+               System.out.println("\nHello " + customer[0][1] 
+                        + "!" +
+                        " How much money are you willing to spend"
+                        + " today?\n"
+                        + "Value can range from: $" 
+                        + menu.display_First(menu.get_Root())
+                        + " - $" 
+                        + menu.display_Last(menu.get_Root()));
+
+               
+                while(!loop)
+                {
+                    //Input Must Be Integer
+                    if(!keyboard.hasNextInt())
+                     {
+                         keyboard.next();
+                         System.out.println("Please Enter A Valid Integer");
+                     }
+                    
+                    //Input Must Be Integer Within Range
+                    else if (key > last || key < first)
+                    {
+                        System.out.println("\nPlease Confirm Integer is"
+                                         + " Within Valid Range"
+                                         + "\nBy Entering Number Again"); 
+
+                        key = keyboard.nextInt();  
+                    }
+                    else
+                    {
+                        loop =true;
+                    }
+                }
+
+                menu.custom_Search(menu.get_Root()
+                                    , key
+                                    , customer[1][1]
+                                    , rec_Stack
+                                    , rec_Queue
+                                    , rec_Llist);
+                break;
+
+            default: 
+                System.out.println("Please enter a numeric value of "
+                                 + "1 or 2" 
+                                 + " \nRe-run Program");
+                break;
+
+        }
+
 
     }
     
@@ -114,7 +164,7 @@ public class Waste_Manager
     //FOOD NAMES + PRICES
     public static void create_Menu(BST menu)
     {   
-        
+        /*
         //STEAKS
         menu.insert("Ribeye 8 oz", 12);
         menu.insert("T-bone 10 oz", 14);
@@ -132,12 +182,31 @@ public class Waste_Manager
         menu.insert("Cod  40 oz", 44);
         menu.insert("Trout 48 oz", 52);
         menu.insert("Salmon 56 oz", 60);
+        */
         
         //SIDES
-        menu.insert("Rice 3 oz", 7);
-        menu.insert("Fresh Vegetables 5 oz", 9);
-        menu.insert("Fresh Fruits 6 oz", 10);
-        menu.insert("Swallow's Nest 60 oz", 64);  
+        menu.insert("Rice 3 oz", 3);
+        menu.insert("Fresh Vegetables 5 oz", 5);
+        menu.insert("Fresh Fruits 6 oz", 6);
+        menu.insert("Swallow's Nest 8 oz", 8);  
+        
+                //FISH
+        menu.insert("Bass 10 oz", 10);
+        menu.insert("Cod  12 oz", 12);
+        menu.insert("Trout 14 oz", 14);
+        menu.insert("Salmon 16 oz", 16);
+        
+                //LOBSTERS
+        menu.insert("Maine 18 oz", 18);
+        menu.insert("Langostino 20 oz", 20);
+        menu.insert("Wood-Grilled 22 oz", 22);
+        menu.insert("Seaport 24 oz", 24);
+        
+                //STEAKS
+        menu.insert("Ribeye 25 oz", 25);
+        menu.insert("T-bone 26 oz", 26);
+        menu.insert("Strip 27 oz", 27);
+        menu.insert("Beef Tenderloin 28 oz", 28);
 
         //MID value is 19  
     }
@@ -145,16 +214,25 @@ public class Waste_Manager
     
     //FIX custom_Search method
 
-    /* I HAD AN IDEA!
-       in the custom_Search method why are we using while loops?
-       we should use the inorder and backward methods
-       becuase they can accept a node to start from and go > or < from there*/
+    /*
+    Need to implement linked list.
+    Need to implement bubble sort.
+
+    Linked List will contain beverages and beverage prices.
+    Implement Linked_List class from scratch
     
-        //Queue
-        // To the customers screen, and say..."These are our recommendations..."
-    
-    //I want to use a linked list in the backwards method so the output can be added to the linked list and displayed properly
-    //I do not want to import java.util.LinkedList. We need code to write! 
+    custom_Search method needs work...
+        1. What if value does not exist in tree?
+        2. JIM not working in method
         
+    I also changed our menu for testing purposes.
+    
+    I believe get_Left() does work, however we are traversing tree incorrectly.
+    We do not need to go left, we need to go backwards (up) the tree.
+    
+    EXAMPLE. We are traversing tree to right and anyone of those right nodes
+             could have a left node. Therfore the method works, becuase nothing
+             is there.
+      */  
        
     }
