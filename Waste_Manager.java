@@ -11,8 +11,7 @@ import java.util.Scanner;
 
 public class Waste_Manager 
 {
-    
-    
+        
     public static void main(String[] args) 
     {
         
@@ -26,15 +25,15 @@ public class Waste_Manager
        //Create Queue
        Queue rec_Queue = new Queue();
        
-       //Create Linked List
+       //Create Linked List From Java API
        LinkedList<BSTNode> rec_Llist = new LinkedList<BSTNode>();
-       
-       
-       System.out.println("Who Is Ordering?");
        
        //Initialize array options
        String[][] customer = new String[2][2];      
        fill_Array(customer);
+       
+       
+       System.out.println("Welcome!, who will be ordering dinner today?");
        
        //Display array row1 (Names)
        System.out.println("1 : " + customer[0][0]
@@ -42,6 +41,7 @@ public class Waste_Manager
        
        Scanner keyboard = new Scanner(System.in);
        int key;
+       
        
        switch(keyboard.nextInt())
                {
@@ -90,7 +90,8 @@ public class Waste_Manager
                        
                    default: 
                        System.out.println("Please enter a numeric value of "
-                               + "1 , 2 , 3" + " \nRe-run Program");
+                                        + "1 or 2" 
+                                        + " \nRe-run Program");
                        break;
                    
                }

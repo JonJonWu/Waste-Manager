@@ -283,18 +283,16 @@ public class Binary_Search_Tree
                      
                      found = true;
                      found_Node = r;
-                     
+                                      
                      while (found_Node != null)
-                     {     
-                         backward(found_Node, stack, rec_Llist);
-                         rec_Llist.descendingIterator();
-                         queue.insert((BSTNode) rec_Llist.poll());
-                       
+                     {                       
+                         stack.push(found_Node);
+                         queue.insert(stack.pop());
                          
                          System.out.println(queue.display_Node(found_Node));
-                         found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
+                         found_Node = found_Node.getLeft(); //FIX (64 is last node it does not have a left!)
                      }
-                 
+                     
                  }              
                  //Lucy WORKING
                  else if(crit.equalsIgnoreCase("Not Wasteful"))
@@ -317,7 +315,8 @@ public class Binary_Search_Tree
                  }
                 else //Defualt Case
                 {
-                   //Handles value not in tree, call method again?
+                   val--;
+                   found = custom_Search(r, val, crit, stack, queue, rec_Llist);
                 }
                  
                  break;
@@ -354,22 +353,6 @@ public class Binary_Search_Tree
              System.out.print(r.getPrice() +" ");
              inorder(r.getRight(), stack);
          }
-     }
-     
-      private void backward(BSTNode r, Stack stack, LinkedList rec_Llist)
-     {
-         if (r != null)
-         {
-             backward(r.getRight(), stack, rec_Llist);
-             stack.push(r);
-             backward(r.getLeft(), stack, rec_Llist);
-         }
-         
-         while(!stack.isEmpty())
-         {
-            rec_Llist.add(stack.pop());
-         }
-         
      }
       
      /* Function for preorder traversal */
