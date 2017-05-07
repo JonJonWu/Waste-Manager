@@ -15,22 +15,33 @@ public class Waste_Manager
     public static void main(String[] args) 
     {
         
-       //Creating Data Structures
+       //Initialize and Fill Data Structures
+        
+       //menu is Binary Search Tree (Uses Binary Sort)
        BST menu = new BST();
-       create_Menu(menu);
+       fill_Menu(menu);
        
        Stack rec_Stack = new Stack();
        Queue rec_Queue = new Queue();
        
        LinkedList<BSTNode> linked_Drinks = new LinkedList<BSTNode>();
-       create_Drinks(linked_Drinks);
+       fill_Drinks(linked_Drinks);
        
+       //Bubble Sorts Linked List (Drinks)
        Bubble_Sort bSort = new Bubble_Sort();
        bSort.bubbleSort(linked_Drinks);
+       
        
        //Initialize array options
        String[][] customer = new String[2][2];      
        fill_Array(customer);
+       
+       
+       /*
+            Software is implemented in a tableside interface at restaurant. 
+            Program begins when all members of table (Who are ordering)
+            swips credit cards.
+       */
        
        
        System.out.println("Welcome!, who will be ordering first?");
@@ -45,6 +56,7 @@ public class Waste_Manager
        int key = 0;
        boolean loop = false;
        
+       //First and Last nodes of BST
        int last = menu.display_Last(menu.get_Root());
        int first = menu.display_First(menu.get_Root());
        
@@ -53,9 +65,8 @@ public class Waste_Manager
         {
             //Jim
             case 1:
-                System.out.println("\nHello " + customer[0][0] 
-                        + "!" +
-                        " How much money are you willing to spend"
+                System.out.println("\nHello " + customer[0][0] + "!" 
+                        + " How much money are you willing to spend"
                         + " today?\n"
                         + "Value can range from: $" 
                         + first
@@ -157,8 +168,6 @@ public class Waste_Manager
                 break;
 
         }
-
-
     }
     
 
@@ -173,8 +182,8 @@ public class Waste_Manager
        customer[1][1] = "Not Wasteful";
     }
      
-    //FOOD NAMES + PRICES
-    public static void create_Menu(BST menu)
+
+    public static void fill_Menu(BST menu)
     {   
         //STEAKS
         menu.insert("Ribeye 8 oz", 12);
@@ -201,7 +210,7 @@ public class Waste_Manager
         menu.insert("Swallow's Nest 8 oz", 8);  
     }
     
-    public static void create_Drinks(LinkedList linked_Drinks)
+    public static void fill_Drinks(LinkedList linked_Drinks)
     {
         linked_Drinks.offer(new BSTNode("Sprite", 3));
         linked_Drinks.offer(new BSTNode("Coca Cola", 2));
@@ -212,5 +221,8 @@ public class Waste_Manager
         linked_Drinks.offer(new BSTNode("House Cocktail", 7));
         linked_Drinks.offer(new BSTNode("Mojito", 8));
     }
-       
+ 
+    
+    //JOPTIONPANE
+    
 }
