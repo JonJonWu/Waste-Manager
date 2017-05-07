@@ -208,7 +208,7 @@ public class Waste_Manager
         menu.insert("Strip 27 oz", 27);
         menu.insert("Beef Tenderloin 28 oz", 28);
 
-        //MID value is 19  
+        //MID value is 18  
     }
     
     

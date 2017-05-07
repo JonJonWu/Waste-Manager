@@ -1,6 +1,6 @@
 package waste_manager;
 
-public class Queue 
+public class Queue extends BSTNode
 {
     
     private BSTNode[] Queue;
@@ -52,23 +52,14 @@ public class Queue
             System.out.println("Queue is Full");   
         }
     }
-       
+        
     public void remove()
     {
         if ( numberOfItems > 0 )
-        {       
-            System.out.println("\n" + Queue [ front ] + " : Has Been Deleted\n");
-            
-            /*Changes the value of the first element to "DELETED" for ensurance
-              After shift() is called the user will never see "DELETED". */
-               
-            shift();                                                            
-            numberOfItems --;
-        }
-        else
         {   
-            System.out.println("\nCannot Remove Value");
-            System.out.println("Queue is Empty");    
+            numberOfItems --;
+            shift();
+            
         }
     }
         
@@ -85,10 +76,22 @@ public class Queue
             }       
     }
    
-    public String display_Node(BSTNode node)
+    public void display_Node(Queue queue)
     {
-        return "\n" + node.food_Name 
-             + "\n" + node.food_Price;
+        while(!queue.isEmpty())
+        {
+            System.out.println(queue.getFood()
+                             + "\n"
+                             + queue.getPrice());
+            front--;
+        }
     }
+    
+    public boolean isEmpty()
+    {
+        return numberOfItems == 0;
+    }
+    
+    
     
 }//END OF CLASS QUEUE

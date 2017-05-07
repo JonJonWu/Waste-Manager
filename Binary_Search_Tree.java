@@ -267,26 +267,24 @@ public class Binary_Search_Tree
     {
          BSTNode found_Node = null;
          boolean found = false;
-         
+                  
          while ((r != null) && !found)
          {
              int rval = r.getPrice();
              
-             System.out.println("ROOT PRICE\n" + rval);
+             //System.out.println("ROOT PRICE\n" + rval);
              if (val < rval)
              {
-                 r = r.left;
-                 System.out.println("Going Left");
+                 r = r.left;                
              }
              else if (val > rval)
              {
-                 r = r.right;
+                 r = r.right;                 
              }
-             //Value is found
-             else
-             {
-                 
-                 //JIM NOT WORKING
+             //Value is found or takes too many traversals (Never existed)
+             else 
+             {                 
+                 //JIM  WORKING
                  if(crit.equalsIgnoreCase("Wasteful"))
                  {
                      //Reccomendations will be less than the value entered
@@ -294,17 +292,11 @@ public class Binary_Search_Tree
                      
                      found = true;
                      found_Node = r;
-                    // System.out.println("Found Node");
-                  //   System.out.println(found_Node.getLeft().getPrice());
-                                      
-                     while (found_Node != null)
-                     {                       
-                         stack.push(found_Node);
-                         queue.insert(stack.pop());
-                         
-                         System.out.println(queue.display_Node(found_Node));
-                         found_Node = found_Node.getLeft(); //FIX (64 is last node it does not have a left!)
-                     }
+     
+                     inorder(root, val, stack, queue);    
+                  
+                     queue.display_Node();
+
                      
                  }              
                  //Lucy WORKING
@@ -321,7 +313,7 @@ public class Binary_Search_Tree
                          stack.push(found_Node);
                          queue.insert(stack.pop());
                          
-                         System.out.println(queue.display_Node(found_Node));
+                         //System.out.println(queue.display_Node());
                          found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
                      }
                  
@@ -348,19 +340,21 @@ public class Binary_Search_Tree
          if (r != null)
          {
              inorder(r.getLeft());
-
+             
              inorder(r.getRight());
          }
      }
      
-     public void inorder(BSTNode r, Stack stack)
+     public void inorder(BSTNode r, int val, Stack stack, Queue queue)
      {
-         if (r != null)
+         if ((r != null) && (r.getPrice () <= val))
          {
-             inorder(r.getLeft(), stack);
-             System.out.print(r.getPrice() +" ");
-             inorder(r.getRight(), stack);
+             inorder(r.getLeft(), val, stack, queue);
+             stack.push(r);
+             queue.insert(stack.pop());
+             inorder(r.getRight(), val, stack, queue);
          }
+         
      }
       
      /* Function for preorder traversal */
@@ -391,7 +385,7 @@ public class Binary_Search_Tree
          {
              postorder(r.getLeft());            
              postorder(r.getRight());
-             System.out.print(r.getPrice() +" ");
+             System.out.print(r.getPrice() +" ");            
          }
      }
      
