@@ -76,15 +76,9 @@ public class Queue extends BSTNode
             }       
     }
    
-    public void display_Node(Queue queue)
+    public String display_Node(BSTNode node)
     {
-        while(!queue.isEmpty())
-        {
-            System.out.println(queue.getFood()
-                             + "\n"
-                             + queue.getPrice());
-            front--;
-        }
+        return node.food_Name + "\n" + node.food_Price;
     }
     
     public boolean isEmpty()

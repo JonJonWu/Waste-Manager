@@ -294,9 +294,6 @@ public class Binary_Search_Tree
                      found_Node = r;
      
                      inorder(root, val, stack, queue);    
-                  
-                     queue.display_Node();
-
                      
                  }              
                  //Lucy WORKING
@@ -313,7 +310,7 @@ public class Binary_Search_Tree
                          stack.push(found_Node);
                          queue.insert(stack.pop());
                          
-                         //System.out.println(queue.display_Node());
+                         System.out.println(queue.display_Node(found_Node));
                          found_Node = found_Node.getRight(); //FIX (64 is last node it does not have a left!)
                      }
                  
@@ -352,6 +349,7 @@ public class Binary_Search_Tree
              inorder(r.getLeft(), val, stack, queue);
              stack.push(r);
              queue.insert(stack.pop());
+             System.out.println("node = " + r.getFood() + "\n" + r.getPrice());
              inorder(r.getRight(), val, stack, queue);
          }
          
