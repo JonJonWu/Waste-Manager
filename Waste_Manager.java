@@ -15,18 +15,18 @@ public class Waste_Manager
     public static void main(String[] args) 
     {
         
-       //Creating Binary Search Tree (BST)
+       //Creating Data Structures
        BST menu = new BST();
        create_Menu(menu);
        
-       //Creating Stack (Length = 16 BSTNodes)
        Stack rec_Stack = new Stack();
-      
-       //Create Queue
        Queue rec_Queue = new Queue();
        
-       //Create Linked List From Java API
        LinkedList<BSTNode> linked_Drinks = new LinkedList<BSTNode>();
+       create_Drinks(linked_Drinks);
+       
+       Bubble_Sort bSort = new Bubble_Sort();
+       bSort.bubbleSort(linked_Drinks);
        
        //Initialize array options
        String[][] customer = new String[2][2];      
@@ -37,7 +37,8 @@ public class Waste_Manager
        
        //Display array row1 (Names)
        System.out.println("1 : " + customer[0][0]
-                                 + "\n2 : " + customer[0][1]);
+                                 + "\n"
+                                 + "2 : " + customer[0][1]);
        
        Scanner keyboard = new Scanner(System.in);
        
@@ -46,6 +47,7 @@ public class Waste_Manager
        
        int last = menu.display_Last(menu.get_Root());
        int first = menu.display_First(menu.get_Root());
+       
        
        switch(keyboard.nextInt())
         {
@@ -90,6 +92,18 @@ public class Waste_Manager
                                     , customer[1][0]
                                     , rec_Stack
                                     , rec_Queue);
+                
+                
+                System.out.println("\n\nHere is our selection of drinks");
+                
+                while(!linked_Drinks.isEmpty())
+                {
+                   System.out.println(linked_Drinks.peek().getFood()
+                   + "\n"
+                   + linked_Drinks.peek().getPrice());
+                   
+                   linked_Drinks.remove();        
+                }
 
                  break;
 
@@ -197,8 +211,6 @@ public class Waste_Manager
         linked_Drinks.offer(new BSTNode("Coffee", 3));
         linked_Drinks.offer(new BSTNode("House Cocktail", 7));
         linked_Drinks.offer(new BSTNode("Mojito", 8));
-                
-        bubbleSort(linked_Drinks);
     }
        
 }

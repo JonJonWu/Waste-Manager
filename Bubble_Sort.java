@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class Bubble_Sort extends BSTNode
 {    
             
-    private static void bubbleSort(LinkedList<BSTNode> node_List) 
+    public void bubbleSort(LinkedList<BSTNode> node_List) 
     {
 
     /*
