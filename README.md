@@ -14,13 +14,13 @@ Project Deliverables:
 2.  Student Contribution Page
 3.  Problem Statement
 4.  Project/program flow chart (systems analysis)
-5.  Project must use an Array in one of its classes
-6.  Project must use a Linked List in one of its classes
-7.  Project must use a Stack in one of its classes
-8.  Project must use a Queuein one of its classes
-9.  Project must use a Binary Treein one of its classes
-10. Project use a Binary Searchin one of its classes
-11. Project must use a Bubble Sort in one of its classes
+5.  Project must use an Array in one of its classes        (Customer Names, BSTNode[] <- used in other data structures)
+6.  Project must use a Linked List in one of its classes   (Drinks)
+7.  Project must use a Stack in one of its classes         (Gets information from BST menu)
+8.  Project must use a Queue in one of its classes         (Filled by stack.pop , used to display node)
+9.  Project must use a Binary Tree in one of its classes   (Optional, we included as a BST)
+10. Project use a Binary Search in one of its classes      (REQUIREMENT REMOVED, we included in BST)
+11. Project must use a Bubble Sort in one of its classes   (Used on linked list)
 12. Requirements Document
 13. Project Summary
 14. References
