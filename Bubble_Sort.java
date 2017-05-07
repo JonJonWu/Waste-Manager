@@ -1,4 +1,5 @@
 package waste_manager;
+import java.util.Collections;
 import java.util.LinkedList;
 
 /**
@@ -8,9 +9,10 @@ import java.util.LinkedList;
  * @Date   4/15/17
  */
 
-public class Bubble_Sort 
+public class Bubble_Sort extends BSTNode
 {    
-    private static void bubbleSort(int[] intArray) 
+            
+    private static void bubbleSort(LinkedList<BSTNode> node_List) 
     {
 
     /*
@@ -28,22 +30,19 @@ public class Bubble_Sort
      * Repeat the same steps for array[1] to array[n-1]
      */
 
-        int n = intArray.length;
+        int length = node_List.size();
         int temp = 0;
 
-        for(int i=0; i < n; i++)
+        for(int i=0; i < length; i++)
         {
-            for(int j=1; j < (n-i); j++)
+            for(int j=1; j < (length-i); j++)
             {
-                if( intArray[j-1] > intArray[j] )
+                if( node_List.get(j-1).getPrice() > node_List.get(j).getPrice())
                 {
                         //swap the elements!
-                        temp = intArray[j-1];
-
-                        intArray[j-1] = intArray[j];
-                        intArray[j] = temp;
+                        Collections.swap(node_List, j-1, j);
                 }
             }
         }//END FOR LOOP
-    }
+    }   
 }

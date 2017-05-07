@@ -26,14 +26,14 @@ public class Waste_Manager
        Queue rec_Queue = new Queue();
        
        //Create Linked List From Java API
-       LinkedList<BSTNode> rec_Llist = new LinkedList<BSTNode>();
+       LinkedList<BSTNode> linked_Drinks = new LinkedList<BSTNode>();
        
        //Initialize array options
        String[][] customer = new String[2][2];      
        fill_Array(customer);
        
        
-       System.out.println("Welcome!, who will be ordering dinner today?");
+       System.out.println("Welcome!, who will be ordering first?");
        
        //Display array row1 (Names)
        System.out.println("1 : " + customer[0][0]
@@ -89,8 +89,7 @@ public class Waste_Manager
                                     , key
                                     , customer[1][0]
                                     , rec_Stack
-                                    , rec_Queue
-                                    , rec_Llist);
+                                    , rec_Queue);
 
                  break;
 
@@ -134,8 +133,7 @@ public class Waste_Manager
                                     , key
                                     , customer[1][1]
                                     , rec_Stack
-                                    , rec_Queue
-                                    , rec_Llist);
+                                    , rec_Queue);
                 break;
 
             default: 
@@ -164,7 +162,6 @@ public class Waste_Manager
     //FOOD NAMES + PRICES
     public static void create_Menu(BST menu)
     {   
-        /*
         //STEAKS
         menu.insert("Ribeye 8 oz", 12);
         menu.insert("T-bone 10 oz", 14);
@@ -175,64 +172,33 @@ public class Waste_Manager
         menu.insert("Maine 16 oz", 20);
         menu.insert("Langostino 20 oz", 24);
         menu.insert("Wood-Grilled 24 oz", 28);
-        menu.insert("Seaport 32 oz", 36);
+        menu.insert("Seaport 32 oz", 32);
         
         //FISH
         menu.insert("Bass 32 oz", 36);
         menu.insert("Cod  40 oz", 44);
         menu.insert("Trout 48 oz", 52);
         menu.insert("Salmon 56 oz", 60);
-        */
-        
+           
         //SIDES
         menu.insert("Rice 3 oz", 3);
         menu.insert("Fresh Vegetables 5 oz", 5);
         menu.insert("Fresh Fruits 6 oz", 6);
         menu.insert("Swallow's Nest 8 oz", 8);  
-        
-                //FISH
-        menu.insert("Bass 10 oz", 10);
-        menu.insert("Cod  12 oz", 12);
-        menu.insert("Trout 14 oz", 14);
-        menu.insert("Salmon 16 oz", 16);
-        
-                //LOBSTERS
-        menu.insert("Maine 18 oz", 18);
-        menu.insert("Langostino 20 oz", 20);
-        menu.insert("Wood-Grilled 22 oz", 22);
-        menu.insert("Seaport 24 oz", 24);
-        
-                //STEAKS
-        menu.insert("Ribeye 25 oz", 25);
-        menu.insert("T-bone 26 oz", 26);
-        menu.insert("Strip 27 oz", 27);
-        menu.insert("Beef Tenderloin 28 oz", 28);
-
-        //MID value is 18  
     }
     
-    
-    //FIX custom_Search method
-
-    /*
-    Need to implement linked list.
-    Need to implement bubble sort.
-
-    Linked List will contain beverages and beverage prices.
-    Implement Linked_List class from scratch
-    
-    custom_Search method needs work...
-        1. What if value does not exist in tree?
-        2. JIM not working in method
-        
-    I also changed our menu for testing purposes.
-    
-    I believe get_Left() does work, however we are traversing tree incorrectly.
-    We do not need to go left, we need to go backwards (up) the tree.
-    
-    EXAMPLE. We are traversing tree to right and anyone of those right nodes
-             could have a left node. Therfore the method works, becuase nothing
-             is there.
-      */  
+    public static void create_Drinks(LinkedList linked_Drinks)
+    {
+        linked_Drinks.offer(new BSTNode("Sprite", 3));
+        linked_Drinks.offer(new BSTNode("Coca Cola", 2));
+        linked_Drinks.offer(new BSTNode("Pepsi", 4));
+        linked_Drinks.offer(new BSTNode("Tea", 1));
+        linked_Drinks.offer(new BSTNode("Water", 0));
+        linked_Drinks.offer(new BSTNode("Coffee", 3));
+        linked_Drinks.offer(new BSTNode("House Cocktail", 7));
+        linked_Drinks.offer(new BSTNode("Mojito", 8));
+                
+        bubbleSort(linked_Drinks);
+    }
        
-    }
+}
