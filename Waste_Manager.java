@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 
 /*
-    Program uses two additional extra credit data structures
+    Program uses two additional EXTRA CREDIT ADT's 
 
     1. Binary Search Tree (BST)
     2. Binary Search ( see BST : custom_Search() method )
