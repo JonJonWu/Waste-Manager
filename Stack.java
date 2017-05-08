@@ -1,5 +1,12 @@
 package waste_manager;
 
+/**
+ * @Author Jonathan Wu
+ * @Author Rajendra Bhagroo
+ * @Class  CSCI 260 - W01
+ * @Date   5/16/17
+ */
+
 class Stack
 {
     private int maxSize = 16;
