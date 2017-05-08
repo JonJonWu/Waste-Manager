@@ -38,8 +38,7 @@ public class Waste_Manager
        
        //Bubble Sorts Linked List (Drinks)
        Bubble_Sort bSort = new Bubble_Sort();
-       bSort.bubbleSort(linked_Drinks);
-       
+       bSort.bubbleSort(linked_Drinks);      
        
        //Initialize array options
        String[][] customer = new String[2][2];      
