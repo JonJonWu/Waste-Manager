@@ -9,18 +9,27 @@ import java.util.Scanner;
  * @Date   4/15/17
  */
 
+/*
+    Program uses two additional extra credit data structures
+
+    1. Binary Search Tree (BST)
+    2. Binary Sort ( see BST : custom_Search() method )
+*/
+
+
 public class Waste_Manager 
 {
         
     public static void main(String[] args) 
     {
         
-       //Initialize and Fill Data Structures
+       /* Initialize and Fill Data Structures */
         
        //menu is Binary Search Tree (Uses Binary Sort)
        BST menu = new BST();
        fill_Menu(menu);
        
+       //Reccomendation Stack, and Queue
        Stack rec_Stack = new Stack();
        Queue rec_Queue = new Queue();
        
@@ -40,7 +49,7 @@ public class Waste_Manager
        /*
             Software is implemented in a tableside interface at restaurant. 
             Program begins when all members of table (Who are ordering)
-            swips credit cards.
+            swips credit/debit cards.
        */
        
        
@@ -53,6 +62,7 @@ public class Waste_Manager
        
        Scanner keyboard = new Scanner(System.in);
        
+       //Search Key
        int key = 0;
        boolean loop = false;
        
@@ -63,7 +73,7 @@ public class Waste_Manager
        
        switch(keyboard.nextInt())
         {
-            //Jim
+            //Jim WASTEFUL
             case 1:
                 System.out.println("\nHello " + customer[0][0] + "!" 
                         + " How much money are you willing to spend"
@@ -90,14 +100,18 @@ public class Waste_Manager
                                          + " Within Valid Range"
                                          + "\nBy Entering Number Again"); 
 
+                        //Search Key : used to find specific node in BST
                         key = keyboard.nextInt();  
                     }
+                    
+                    //Continue Looping
                     else
                     {
-                        loop =true;
+                        loop = true;
                     }
                 }
 
+                //Searches for node using key, returns recommendations
                 menu.custom_Search(menu.get_Root()
                                     , key
                                     , customer[1][0]
@@ -105,8 +119,9 @@ public class Waste_Manager
                                     , rec_Queue);
                 
                 
-                System.out.println("\n\nHere is our selection of drinks");
+                System.out.println("\n\nHere is our selection of beverages");
                 
+                //Displays entire selection of beverages
                 while(!linked_Drinks.isEmpty())
                 {
                    System.out.println(linked_Drinks.peek().getFood()
@@ -118,7 +133,8 @@ public class Waste_Manager
 
                  break;
 
-            //Lucy    
+                 
+            //Lucy NOT WASTEFUL    
             case 2:
                System.out.println("\nHello " + customer[0][1] 
                         + "!" +
@@ -146,28 +162,47 @@ public class Waste_Manager
                                          + " Within Valid Range"
                                          + "\nBy Entering Number Again"); 
 
+                        //Search Key : used to find specific node in BST
                         key = keyboard.nextInt();  
                     }
+                    
+                    //Continue Looping
                     else
                     {
                         loop =true;
                     }
                 }
-
+                
+                
+                //Searches for node using key, returns recommendations
                 menu.custom_Search(menu.get_Root()
                                     , key
                                     , customer[1][1]
                                     , rec_Stack
                                     , rec_Queue);
+                
+                
+                 System.out.println("\n\nHere is our selection of beverages");
+                
+                //Displays entire selection of beverages
+                while(!linked_Drinks.isEmpty())
+                {
+                   System.out.println(linked_Drinks.peek().getFood()
+                   + "\n"
+                   + linked_Drinks.peek().getPrice());
+                   
+                   linked_Drinks.remove();        
+                }
+
                 break;
 
             default: 
-                System.out.println("Please enter a numeric value of "
+                System.out.println("\nPlease enter a numeric value of "
                                  + "1 or 2" 
                                  + " \nRe-run Program");
                 break;
 
-        }
+        }//END SWITCH
     }
     
 
@@ -221,8 +256,5 @@ public class Waste_Manager
         linked_Drinks.offer(new BSTNode("House Cocktail", 7));
         linked_Drinks.offer(new BSTNode("Mojito", 8));
     }
- 
     
-    //JOPTIONPANE
-    
-}
+}//END OF CLASS

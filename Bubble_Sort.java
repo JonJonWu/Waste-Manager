@@ -9,6 +9,10 @@ import java.util.LinkedList;
  * @Date   4/15/17
  */
 
+    /* Bubble_Sort is used to sort linked_Drinks data structure.
+       Bubble_Sort is instantiated in Waste_Manager class as bSort.
+       bSort can be found in Waste_Manager : Uses bubbleSort() method.*/
+
 public class Bubble_Sort extends BSTNode
 {    
             

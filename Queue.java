@@ -9,10 +9,10 @@ public class Queue extends BSTNode
     private int front;
     private int back;
     
-    /* Front will always be set to 0, 
-       This marks the first element in the array. 
-       The first element is only altered by a call to the shift() method 
-       Found in the remove() method  */
+    /* Queue is used to display BST menu reccomendations.
+       Queue is instantiated in Waste_Manager class as rec_Queue.
+       rec_Queue = Reccomendation_Queue
+       Queue can be found in BST : custom_Search() and inorder() methods.*/
                                     
     
     // Constructor
@@ -68,6 +68,7 @@ public class Queue extends BSTNode
         System.out.print("Front of Queue: " + Queue[ front ] + "\n");     
     }
    
+    //Maintains order of array if an item is to be deleted
     public void shift()                                                        
     {                                                                          
             for (int i = 0 ; i < numberOfItems; i++) 
@@ -85,7 +86,5 @@ public class Queue extends BSTNode
     {
         return numberOfItems == 0;
     }
-    
-    
-    
+  
 }//END OF CLASS QUEUE

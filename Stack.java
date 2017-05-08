@@ -6,6 +6,11 @@ class Stack
     private BSTNode[] stackArray;
     private int top;
 	 
+    /* Stack is used to populate Queue.
+       Stack is instantiated in Waste_Manager class as rec_Stack.
+       rec_Stack = Reccomendation_Stack
+       Stack can be found in BST : custom_Search() and inorder() methods.*/
+    
     
     public Stack()
     {
@@ -27,8 +32,7 @@ class Stack
     {
         while( top > -1 )
         {
-            System.out.println(stackArray.toString()); //FIX
-            //System.out.println();
+            System.out.println(stackArray.toString());
             stackArray[top--] = null;
         }
     }

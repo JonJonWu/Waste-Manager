@@ -9,6 +9,20 @@ import java.util.Scanner;
  * @Date   4/15/17
  */
 
+/* This file contains 3 classes...
+
+    1. Binary_Search_Tree
+    2. BSTNode
+    3. BST
+
+The Binary_Search_Tree class is used for file name(otherwise we could not print)
+The BSTNode class defines the nodes used in BST, Queue, Linked List, Bubble_Sort
+The BST class is the Binary Search Tree, implements Binary Search algrotithm. 
+The BST class can be found within Waste_Manager class : main() and fill_Drinks() 
+*/
+
+
+
 public class Binary_Search_Tree 
 {   
 }
@@ -107,7 +121,7 @@ public class Binary_Search_Tree
  }
  
                                                             
-/* Class BST */
+/* Class BST (Binary Search Tree) */
  class BST
  {
      private BSTNode root;
@@ -149,7 +163,7 @@ public class Binary_Search_Tree
          return node;
      }
      
-     /* Functions to delete data */
+     /* Function to delete data */
      public void delete(int key)
      {
          if (isEmpty())
@@ -163,6 +177,7 @@ public class Binary_Search_Tree
          }
      }
      
+     /* Function to delete recursively */
      private BSTNode delete(BSTNode root, int key)
      {
          BSTNode pointer, pointer2, node;
@@ -206,7 +221,7 @@ public class Binary_Search_Tree
          return root;
      }
      
-     /* Functions to count number of nodes */
+     /* Function to count number of nodes */
      public int countNodes()
      {
          return countNodes(root);
@@ -226,7 +241,7 @@ public class Binary_Search_Tree
          }
      }
      
-     /* Functions to search for an element */
+     /* Function to search for an element */
      public boolean search(int value)
      {
          return search(root, value);
@@ -257,10 +272,10 @@ public class Binary_Search_Tree
          return found;
      }
      
-    //edit to push recommendations based off customer criteria, push onto stack 
-    public boolean custom_Search(BSTNode r
-                               , int val
-                               , String crit
+    //Main function used to search for node and display reccomendations 
+    public boolean custom_Search(BSTNode r        //Root
+                               , int val          //Search key = value
+                               , String crit      //Criteria: Wasteful or Not
                                , Stack stack
                                , Queue queue)
             
@@ -268,6 +283,7 @@ public class Binary_Search_Tree
          BSTNode found_Node = null;
          boolean found = false;
                   
+         //Binary Search starts from root, calls recursively
          while ((r != null) && !found)
          {
              int rval = r.getPrice();
@@ -281,24 +297,37 @@ public class Binary_Search_Tree
                  r = r.right;                 
              }
 
+             //When node is found, checks criteria to execute certain code
              else 
              {                 
                  //JIM
                  if(crit.equalsIgnoreCase("Wasteful"))
                  {
-                     //Reccomendations will be less than the value entered
+                     /*
+                        Reccomendations will be LESS than the value entered 
+                        Because we DO NOT want restaurant or customer
+                        To loose money
+                     */
+                     
                      System.out.println("\nHere are our recommendations:");
                      
                      found = true;
                      found_Node = r;
      
+                     //inorder traversal begins at root, stops at found_node
                      inorder(root, val, stack, queue);    
                      
                  }              
+                 
                  //Lucy
                  else
                  {
-                     //Reccomendations will be greater than the value entered
+                     /*
+                        Reccomendations will be GREATER than the value entered 
+                        Because we want the customer to spend more money to 
+                        Benefit the restaurant
+                     */
+                     
                      System.out.println("\nHere are our recommendations:");
                      
                      found = true;
@@ -341,14 +370,17 @@ public class Binary_Search_Tree
          }
      }
      
+     //Main inorder method used to display reccomendation for JIM
      public void inorder(BSTNode r, int val, Stack stack, Queue queue)
      {
          if ((r != null) && (r.getPrice () <= val))
          {
              inorder(r.getLeft(), val, stack, queue);
+             
              stack.push(r);
              queue.insert(stack.pop());
              System.out.println("\n" + r.getFood() + "\n" + r.getPrice());
+             
              inorder(r.getRight(), val, stack, queue);
          }
          
