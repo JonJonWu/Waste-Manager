@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 The Binary_Search_Tree class is used for file name(otherwise we could not print)
 The BSTNode class defines the nodes used in BST, Queue, Linked List, Bubble_Sort
-The BST class is the Binary Search Tree, implements Binary Search algrotithm. 
+The BST class is the Binary Search Tree, implements Binary Search algorithm. 
 The BST class can be found within Waste_Manager class : main() and fill_Drinks() 
 */
 

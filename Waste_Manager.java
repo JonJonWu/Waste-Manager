@@ -13,7 +13,7 @@ import java.util.Scanner;
     Program uses two additional extra credit data structures
 
     1. Binary Search Tree (BST)
-    2. Binary Sort ( see BST : custom_Search() method )
+    2. Binary Search ( see BST : custom_Search() method )
 */
 
 
@@ -25,7 +25,7 @@ public class Waste_Manager
         
        /* Initialize and Fill Data Structures */
         
-       //menu is Binary Search Tree (Uses Binary Sort)
+       //menu is Binary Search Tree (Uses Binary Search)
        BST menu = new BST();
        fill_Menu(menu);
        
