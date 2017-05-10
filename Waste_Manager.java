@@ -81,18 +81,19 @@ public class Waste_Manager
                            + "Value can range from: $" 
                            + first + " - $" + last));
                 
-                if(key < first || key > last)
-                {
-                    JOptionPane.showMessageDialog(null,
+                    if(key < first || key > last)
+                    {
+                        JOptionPane.showMessageDialog(null,
                                            "\nPlease Enter Integer Within "
                                          + "Valid Range "
                                          + "Of $" + first + " - $" + last);
+                    }
+                    else
+                    {
+                        valid = true;
+                    }
                 }
-                else
-                {
-                    valid = true;
-                }
-                }
+                
                 catch(NumberFormatException e)
                 {
                     JOptionPane.showMessageDialog(null,
@@ -137,18 +138,19 @@ public class Waste_Manager
                            + "Value can range from: $" 
                            + first + " - $" + last));
                 
-                if(key < first || key > last)
-                {
-                    JOptionPane.showMessageDialog(null,
+                     if(key < first || key > last)
+                     {
+                         JOptionPane.showMessageDialog(null,
                                            "\nPlease Enter Integer Within "
                                          + "Valid Range "
                                          + "Of $" + first + " - $" + last);
+                     }
+                     else
+                     {
+                        valid = true;
+                     }
                 }
-                else
-                {
-                    valid = true;
-                }
-                }
+                
                 catch(NumberFormatException e)
                 {
                     JOptionPane.showMessageDialog(null,
