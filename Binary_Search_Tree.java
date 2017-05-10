@@ -1,6 +1,6 @@
 package waste_manager;
 import java.util.LinkedList;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * @Author Jonathan Wu
@@ -167,13 +167,20 @@ public class Binary_Search_Tree
      public void delete(int key)
      {
          if (isEmpty())
-             System.out.println("Tree is Empty");
+             
+             JOptionPane.showMessageDialog(null,
+                     "Tree is Empty");
+         
          else if (search(key) == false)
-             System.out.println("Sorry "+ key +" is not present");
+             
+             JOptionPane.showMessageDialog(null,
+                     "Sorry "+ key +" is not present");
          else
          {
              root = delete(root, key);
-             System.out.println(key + " deleted from the tree");
+             
+             JOptionPane.showMessageDialog(null,
+                     key + " deleted from the tree");
          }
      }
      
@@ -263,7 +270,9 @@ public class Binary_Search_Tree
              {
                  found = true;
                  found_Node = r;
-                 System.out.println("Name: " + found_Node.food_Name 
+                 
+                 JOptionPane.showMessageDialog(null,
+                         "Name: " + found_Node.food_Name 
                                   + "\nPrice: $" + found_Node.food_Price);
                  break;
              }
@@ -309,7 +318,8 @@ public class Binary_Search_Tree
                         To loose money
                      */
                      
-                     System.out.println("\nHere are our recommendations:");
+                     JOptionPane.showMessageDialog(null,
+                             "\nHere are our recommendations:");
                      
                      found = true;
                      found_Node = r;
@@ -328,7 +338,8 @@ public class Binary_Search_Tree
                         Benefit the restaurant
                      */
                      
-                     System.out.println("\nHere are our recommendations:");
+                     JOptionPane.showMessageDialog(null,
+                             "\nHere are our recommendations:");
                      
                      found = true;
                      found_Node = r;
@@ -338,7 +349,10 @@ public class Binary_Search_Tree
                          stack.push(found_Node);
                          queue.insert(stack.pop());
                          
-                         System.out.println(queue.display_Node(found_Node));
+                         JOptionPane.showMessageDialog(null,
+                                 queue.display_Node(found_Node));
+                         
+                         
                          found_Node = found_Node.getRight(); 
                      }
                  
@@ -379,7 +393,9 @@ public class Binary_Search_Tree
              
              stack.push(r);
              queue.insert(stack.pop());
-             System.out.println("\n" + r.getFood() + "\n" + r.getPrice());
+             
+             JOptionPane.showMessageDialog(null,
+                     "\n" + r.getFood() + "\n" + r.getPrice());
              
              inorder(r.getRight(), val, stack, queue);
          }

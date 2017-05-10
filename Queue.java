@@ -1,5 +1,7 @@
 package waste_manager;
 
+import javax.swing.JOptionPane;
+
 /**
  * @Author Jonathan Wu
  * @Author Rajendra Bhagroo
@@ -55,8 +57,9 @@ public class Queue extends BSTNode
         }
         else
         {   
-            System.out.println("\nCannot Insert: " + node);
-            System.out.println("Queue is Full");   
+            JOptionPane.showMessageDialog(null,
+                    "\nCannot Insert: " + node
+                  + "Queue is Full");   
         }
     }
         
@@ -72,7 +75,8 @@ public class Queue extends BSTNode
         
     public void peek()                                                          
     {
-        System.out.print("Front of Queue: " + Queue[ front ] + "\n");     
+        JOptionPane.showMessageDialog(null,
+                "Front of Queue: " + Queue[ front ] + "\n");     
     }
    
     //Maintains order of array if an item is to be deleted

@@ -1,6 +1,6 @@
 package waste_manager;
 import java.util.LinkedList;
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * @Author Jonathan Wu
@@ -51,65 +51,56 @@ public class Waste_Manager
             swips credit/debit cards.
        */
        
+       int input = Integer.parseInt(JOptionPane.showInputDialog(null,
+                            "Welcome! who will be ordering first?\n"
+                             + "1 : " + customer[0][0]
+                             + "\n"
+                             + "2 : " + customer[0][1]));
        
-       System.out.println("Welcome!, who will be ordering first?");
-       
-       //Display array row1 (Names)
-       System.out.println("1 : " + customer[0][0]
-                                 + "\n"
-                                 + "2 : " + customer[0][1]);
-       
-       Scanner keyboard = new Scanner(System.in);
        
        //Search Key
        int key = 0;
-       boolean loop = false;
+       boolean valid = false;
        
        //First and Last nodes of BST
        int last = menu.display_Last(menu.get_Root());
        int first = menu.display_First(menu.get_Root());
        
        
-       switch(keyboard.nextInt())
+       switch(input)
         {
             //Jim WASTEFUL
             case 1:
-                System.out.println("\nHello " + customer[0][0] + "!" 
-                        + " How much money are you willing to spend"
-                        + " today?\n"
-                        + "Value can range from: $" 
-                        + first
-                        + " - $" 
-                        + last);
-
-                
-                while(!loop)
+                while(!valid)
+                try
                 {
-                    //Input Must Be Integer
-                    if(!keyboard.hasNextInt())
-                     {
-                         keyboard.next();
-                         System.out.println("Please Enter A Valid Integer");
-                     }
-                    
-                    //Input Must Be Integer Within Range
-                    else if (key > last || key < first)
-                    {
-                        System.out.println("\nPlease Confirm Integer is"
-                                         + " Within Valid Range"
-                                         + "\nBy Entering Number Again"); 
-
-                        //Search Key : used to find specific node in BST
-                        key = keyboard.nextInt();  
-                    }
-                    
-                    //Continue Looping
-                    else
-                    {
-                        loop = true;
-                    }
+                     key = Integer.parseInt(JOptionPane.showInputDialog("\n"
+                           + "Hello " + customer[0][0] + "! " 
+                           + "How much money are you willing to spend "
+                           + "today?\n"
+                           + "Value can range from: $" 
+                           + first + " - $" + last));
+                
+                if(key < first || key > last)
+                {
+                    JOptionPane.showMessageDialog(null,
+                                           "\nPlease Enter Integer Within "
+                                         + "Valid Range "
+                                         + "Of $" + first + " - $" + last);
                 }
-
+                else
+                {
+                    valid = true;
+                }
+                }
+                catch(NumberFormatException e)
+                {
+                    JOptionPane.showMessageDialog(null,
+                                           "\nNo Integer Detected"
+                                         + "\nTry Again");
+                }
+                
+                
                 //Searches for node using key, returns recommendations
                 menu.custom_Search(menu.get_Root()
                                     , key
@@ -118,58 +109,51 @@ public class Waste_Manager
                                     , rec_Queue);
                 
                 
-                System.out.println("\n\nHere is our selection of beverages");
+                JOptionPane.showMessageDialog(null,
+                        "Here is our selection of beverages");
                 
                 //Displays entire selection of beverages
                 while(!linked_Drinks.isEmpty())
                 {
-                   System.out.println(linked_Drinks.peek().getFood()
-                   + "\n"
-                   + linked_Drinks.peek().getPrice());
+                   JOptionPane.showMessageDialog(null,
+                           linked_Drinks.peek().getFood()
+                           + "\n"
+                           + linked_Drinks.peek().getPrice());
                    
                    linked_Drinks.remove();        
                 }
 
                  break;
-
                  
             //Lucy NOT WASTEFUL    
             case 2:
-               System.out.println("\nHello " + customer[0][1] 
-                        + "!" +
-                        " How much money are you willing to spend"
-                        + " today?\n"
-                        + "Value can range from: $" 
-                        + menu.display_First(menu.get_Root())
-                        + " - $" 
-                        + menu.display_Last(menu.get_Root()));
-
-               
-                while(!loop)
+                while(!valid)
+                try
                 {
-                    //Input Must Be Integer
-                    if(!keyboard.hasNextInt())
-                     {
-                         keyboard.next();
-                         System.out.println("Please Enter A Valid Integer");
-                     }
-                    
-                    //Input Must Be Integer Within Range
-                    else if (key > last || key < first)
-                    {
-                        System.out.println("\nPlease Confirm Integer is"
-                                         + " Within Valid Range"
-                                         + "\nBy Entering Number Again"); 
-
-                        //Search Key : used to find specific node in BST
-                        key = keyboard.nextInt();  
-                    }
-                    
-                    //Continue Looping
-                    else
-                    {
-                        loop =true;
-                    }
+                     key = Integer.parseInt(JOptionPane.showInputDialog("\n"
+                           + "Hello " + customer[0][1] + "! " 
+                           + "How much money are you willing to spend "
+                           + "today?\n"
+                           + "Value can range from: $" 
+                           + first + " - $" + last));
+                
+                if(key < first || key > last)
+                {
+                    JOptionPane.showMessageDialog(null,
+                                           "\nPlease Enter Integer Within "
+                                         + "Valid Range "
+                                         + "Of $" + first + " - $" + last);
+                }
+                else
+                {
+                    valid = true;
+                }
+                }
+                catch(NumberFormatException e)
+                {
+                    JOptionPane.showMessageDialog(null,
+                                           "\nNo Integer Detected"
+                                         + "\nTry Again");
                 }
                 
                 
@@ -181,26 +165,25 @@ public class Waste_Manager
                                     , rec_Queue);
                 
                 
-                 System.out.println("\n\nHere is our selection of beverages");
+                JOptionPane.showMessageDialog(null,
+                        "Here is our selection of beverages");
                 
                 //Displays entire selection of beverages
                 while(!linked_Drinks.isEmpty())
                 {
-                   System.out.println(linked_Drinks.peek().getFood()
-                   + "\n"
-                   + linked_Drinks.peek().getPrice());
+                   JOptionPane.showMessageDialog(null,
+                           linked_Drinks.peek().getFood()
+                           + "\n"
+                           + linked_Drinks.peek().getPrice());
                    
                    linked_Drinks.remove();        
                 }
 
                 break;
-
-            default: 
-                System.out.println("\nPlease enter a numeric value of "
-                                 + "1 or 2" 
-                                 + " \nRe-run Program");
-                break;
-
+                
+            default:       
+                JOptionPane.showMessageDialog(null,
+                           "Please Enter A Valid Integer (1 or 2)");
         }//END SWITCH
     }
     

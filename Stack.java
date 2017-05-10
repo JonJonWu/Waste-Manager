@@ -1,5 +1,7 @@
 package waste_manager;
 
+import javax.swing.JOptionPane;
+
 /**
  * @Author Jonathan Wu
  * @Author Rajendra Bhagroo
@@ -39,7 +41,9 @@ class Stack
     {
         while( top > -1 )
         {
-            System.out.println(stackArray.toString());
+            JOptionPane.showMessageDialog(null,
+                    stackArray.toString());
+            
             stackArray[top--] = null;
         }
     }
