@@ -30,8 +30,8 @@ DATA STRUCTURE USAGES - 2 extra credit requirements are used
 
 5.  Array -- (Customer Names, BSTNode[] <- used in other data structures)
 6.  Linked List -- (Drinks)
-7.  Stack -- (Gets nodes (reccomendations) to fill Queue)
-8.  Queue -- (Filled by stack.pop , used to display nodes (reccomendations))
+7.  Stack -- (Gets nodes (recommendations) to fill Queue)
+8.  Queue -- (Filled by stack.pop , used to display nodes (recommendations))
 9.  Binary Tree -- (EXTRA CREDIT, we included as a BST (Binary Search Tree))
 10. Binary Search -- (EXTRA CREDIT, we included in BST...See custom_Search() method)
 11. Bubble Sort -- (Used on linked list)
